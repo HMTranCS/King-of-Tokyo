@@ -26,5 +26,45 @@ class Drawing {
         g.rotate(-rot  * Math.PI/180.0);
         g.translate(-xpos,-ypos);
     } 
-////////////////////////////////////////////////////////////////////////////        
+//////////////////////////////////////////////////////////////////////////// 
+    public static void drawMonsterInfoBox(int xpos,int ypos) {
+        g.setColor(Color.white); 
+        g.fillRect(xpos, ypos, 200, 50);        
+        
+        g.setColor(Color.black); 
+        g.drawRect(xpos, ypos, 200, 50);        
+    } 
+//////////////////////////////////////////////////////////////////////////// 
+    public static void drawVictoryPoints(int xpos,int ypos,double rot,double xscale,double yscale) {  
+        g.translate(xpos,ypos); 
+        g.rotate(rot  * Math.PI/180.0);        
+        g.scale(xscale,yscale);        
+        
+        g.setColor(Color.cyan);
+        int xvals[]={0,5,20,10,20,0,-20,-10,-20,-5}; 
+        int yvals[]={20,10,10,0,-20,-10,-20,0,10,10};
+        g.fillPolygon(xvals,yvals,xvals.length); 
+        
+        g.setColor(Color.darkGray);
+        g.drawPolygon(xvals,yvals,xvals.length);        
+        
+        g.scale(1.0/xscale,1.0/yscale); 
+        g.rotate(-rot  * Math.PI/180.0);        
+        g.translate(-xpos,-ypos);        
+    } 
+//////////////////////////////////////////////////////////////////////////// 
+    public static void drawHealthPoints(int xpos,int ypos) {  
+        g.translate(xpos,ypos);                 
+        
+        g.setColor(Color.red);
+        int xvals[]={0,10,10,30,30,40,40,30}; 
+        int yvals[]={20,20,30,30,20,20,0,0};
+        g.fillPolygon(xvals,yvals,xvals.length); 
+        
+        g.setColor(Color.darkGray);
+        g.drawPolygon(xvals,yvals,xvals.length);        
+                 
+        g.translate(-xpos,-ypos);        
+    } 
+////////////////////////////////////////////////////////////////////////////     
 }
