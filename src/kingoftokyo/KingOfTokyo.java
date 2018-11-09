@@ -117,7 +117,7 @@ public class KingOfTokyo extends JFrame implements Runnable {
         }  
         
         g.drawImage(boardImage,Window.getX(0)*8,Window.getY(0)*3,
-                Window.getWidth2()/2,Window.getHeight2()/2,this); 
+                Window.getWidth2()/2,Window.getHeight2()/2,this);
  
         Drawing.drawMonsterInfoBox(Window.getX(0)*8, Window.getY(0)*3);
         

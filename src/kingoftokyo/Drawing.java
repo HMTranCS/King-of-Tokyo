@@ -57,8 +57,8 @@ class Drawing {
         g.translate(xpos,ypos);                 
         
         g.setColor(Color.red);
-        int xvals[]={0,10,10,30,30,40,40,30}; 
-        int yvals[]={20,20,30,30,20,20,0,0};
+        int xvals[]={0,10,10,30,30,40,40,30,30,20,20,10,10,0,0}; 
+        int yvals[]={20,20,30,30,20,20,0,0,-10,-10,-20,-20,-30,-30,-20};
         g.fillPolygon(xvals,yvals,xvals.length); 
         
         g.setColor(Color.darkGray);
