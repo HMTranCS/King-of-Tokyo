@@ -40,7 +40,7 @@ class Drawing {
         g.rotate(rot  * Math.PI/180.0);        
         g.scale(xscale,yscale);        
         
-        g.setColor(Color.cyan);
+        g.setColor(Color.yellow);
         int xvals[]={0,5,20,10,20,0,-20,-10,-20,-5}; 
         int yvals[]={20,10,10,0,-20,-10,-20,0,10,10};
         g.fillPolygon(xvals,yvals,xvals.length); 

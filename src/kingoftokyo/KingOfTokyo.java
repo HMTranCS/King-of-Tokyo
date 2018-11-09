@@ -16,12 +16,15 @@ public class KingOfTokyo extends JFrame implements Runnable {
     
     Image boardImage;  
     boolean win;
-
+   
     static KingOfTokyo frame;
+    
     public static void main(String[] args) {
         frame = new KingOfTokyo();
-        frame.setSize(Window.WINDOW_WIDTH, Window.WINDOW_HEIGHT);
+        frame.setSize(Window.WINDOW_WIDTH, Window.WINDOW_HEIGHT/2);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
         frame.setVisible(true);
     }
 
@@ -35,7 +38,6 @@ public class KingOfTokyo extends JFrame implements Runnable {
                 if (e.BUTTON1 == e.getButton() ) {
                     e.getX();
                     e.getY();
-                    
                     win = Board.CheckWin();
                 }
 
@@ -97,31 +99,30 @@ public class KingOfTokyo extends JFrame implements Runnable {
             g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                     RenderingHints.VALUE_ANTIALIAS_ON);
         }
-//fill background
-        
-        g.setColor(Color.cyan);
-        g.fillRect(0, 0, Window.xsize, Window.ysize);
+    //fill background
+            g.setColor(new Color(11,97,202));
+            g.fillRect(0, 0, Window.xsize, Window.ysize);
 
-        int x[] = {Window.getX(0), Window.getX(Window.getWidth2()), Window.getX(Window.getWidth2()), Window.getX(0), Window.getX(0)};
-        int y[] = {Window.getY(0), Window.getY(0), Window.getY(Window.getHeight2()), Window.getY(Window.getHeight2()), Window.getY(0)};
-//fill border
-        g.setColor(Color.white);
-        g.fillPolygon(x, y, 4);
-// draw border
-        g.setColor(Color.red);
-        g.drawPolyline(x, y, 5);
+            int x[] = {Window.getX(0), Window.getX(Window.getWidth2()), Window.getX(Window.getWidth2()), Window.getX(0), Window.getX(0)};
+            int y[] = {Window.getY(0), Window.getY(0), Window.getY(Window.getHeight2()), Window.getY(Window.getHeight2()), Window.getY(0)};
+    //fill border
+            g.setColor(Color.white);
+            g.fillPolygon(x, y, 4);
+    // draw border
+            g.setColor(Color.red);
+            g.drawPolyline(x, y, 5);
 
-        if (animateFirstTime) {
-            gOld.drawImage(image, 0, 0, null);
-            return;
-        }  
-        
-        g.drawImage(boardImage,Window.getX(0)*8,Window.getY(0)*3,
-                Window.getWidth2()/2,Window.getHeight2()/2,this);
- 
-        Drawing.drawMonsterInfoBox(Window.getX(0)*8, Window.getY(0)*3);
-        
-        Drawing.drawVictoryPoints(250,235,180.0,1.0,1.0);
+            if (animateFirstTime) {
+                gOld.drawImage(image, 0, 0, null);
+                return;
+            }  
+
+            g.drawImage(boardImage,Window.getX(0)*8,Window.getY(0)*3,
+                    Window.getWidth2()/2,Window.getHeight2()/2,this);
+
+            Drawing.drawMonsterInfoBox(Window.getX(0)*8, Window.getY(0)*3);
+
+            Drawing.drawVictoryPoints(250,235,180.0,1.0,1.0);
         
         if (win)
         {
