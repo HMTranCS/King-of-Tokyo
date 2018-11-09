@@ -14,10 +14,7 @@ public class Board {
     }
     
     public static boolean CheckWin()
-    {                               
-        if(Monster.victoryPoints == 20 /*|| only one monster remains*/) 
-            return (true);
-        
+    {                                       
         return (false);
     }            
 }

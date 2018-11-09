@@ -19,11 +19,17 @@ public class KingOfTokyo extends JFrame implements Runnable {
     boolean win;
 
     static KingOfTokyo frame;
+    static KingOfTokyo start;
     public static void main(String[] args) {
+        start = new KingOfTokyo();
+        start.setSize(Window.WINDOW_WIDTH, Window.WINDOW_HEIGHT);
+        start.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        start.setVisible(true);
+        
         frame = new KingOfTokyo();
         frame.setSize(Window.WINDOW_WIDTH, Window.WINDOW_HEIGHT);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
+        frame.setVisible(true);      
     }
 
     public KingOfTokyo() {
@@ -121,8 +127,11 @@ public class KingOfTokyo extends JFrame implements Runnable {
             return;
         } 
         
-        g.drawImage(boardImage,Window.getX(0),Window.getY(0),
-                Window.getWidth2(),Window.getHeight2(),this);
+//        g.drawImage(boardImage,Window.getX(0),Window.getY(0),
+//                Window.getWidth2(),Window.getHeight2(),this); 
+        
+        g.drawImage(boardImage,Window.getX(0)*8,Window.getY(0)*3,
+                Window.getWidth2()/2,Window.getHeight2()/2,this);
         
         if (win)
         {

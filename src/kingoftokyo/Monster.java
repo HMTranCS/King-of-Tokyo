@@ -3,16 +3,18 @@ package kingoftokyo;
 public class Monster {
     private static Monster currPlayer;
     private static Monster players[] = new Monster[2];
-//    private String name;    
-    public static int victoryPoints; 
-//    private int lifePoints;    
+    private String name;    
+    private int victoryPoints; 
+    private int lifePoints;    
         
     public static void Reset() {
        currPlayer = players[0];
     }
     
-    Monster() { 
-        victoryPoints = 0;        
+    Monster(String _name) {   
+        name = _name; 
+        victoryPoints = 0; 
+        lifePoints = 10;
     }
     
     public static Monster getCurrentPlayer() {
@@ -30,7 +32,15 @@ public class Monster {
         return players[1];
     } 
     
-    public int getvictoryPoints() {
+    public String getName() {
+        return(name);
+    } 
+    
+    public int getVictoryPoints() {
         return victoryPoints;
+    } 
+    
+    public int getLifePoints() {
+        return lifePoints;
     }
 }
