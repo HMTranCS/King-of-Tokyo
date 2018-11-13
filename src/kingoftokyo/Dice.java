@@ -49,8 +49,5 @@ public class Dice {
     public static int getGainLifePoints() {
         return gainLifePoints;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 315915db912627825114903b3f9e1d24d8196184
+

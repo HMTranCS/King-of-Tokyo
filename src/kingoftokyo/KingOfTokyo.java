@@ -99,7 +99,6 @@ public class KingOfTokyo extends JFrame implements Runnable {
             g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                     RenderingHints.VALUE_ANTIALIAS_ON);
         }
-<<<<<<< HEAD
 //fill background
         
         g.setColor(Color.cyan);
@@ -127,32 +126,6 @@ public class KingOfTokyo extends JFrame implements Runnable {
         Drawing.drawVictoryPoints(250,235,180.0,1.0,1.0);
         
         Drawing.drawHealthPoints(350,235,180.0,0.65,0.65);
-=======
-    //fill background
-            g.setColor(new Color(11,97,202));
-            g.fillRect(0, 0, Window.xsize, Window.ysize);
-
-            int x[] = {Window.getX(0), Window.getX(Window.getWidth2()), Window.getX(Window.getWidth2()), Window.getX(0), Window.getX(0)};
-            int y[] = {Window.getY(0), Window.getY(0), Window.getY(Window.getHeight2()), Window.getY(Window.getHeight2()), Window.getY(0)};
-    //fill border
-            g.setColor(Color.white);
-            g.fillPolygon(x, y, 4);
-    // draw border
-            g.setColor(Color.red);
-            g.drawPolyline(x, y, 5);
-
-            if (animateFirstTime) {
-                gOld.drawImage(image, 0, 0, null);
-                return;
-            }  
-
-            g.drawImage(boardImage,Window.getX(0)*8,Window.getY(0)*3,
-                    Window.getWidth2()/2,Window.getHeight2()/2,this);
-
-            Drawing.drawMonsterInfoBox(Window.getX(0)*8, Window.getY(0)*3);
-
-            Drawing.drawVictoryPoints(250,235,180.0,1.0,1.0);
->>>>>>> 315915db912627825114903b3f9e1d24d8196184
         
         if (win)
         {
@@ -190,11 +163,8 @@ public class KingOfTokyo extends JFrame implements Runnable {
                 Window.xsize = getSize().width;
                 Window.ysize = getSize().height;
             }
-<<<<<<< HEAD
             boardImage = Toolkit.getDefaultToolkit().getImage("./download.jpg");            
-=======
             boardImage = Toolkit.getDefaultToolkit().getImage("./board.jpg");            
->>>>>>> 315915db912627825114903b3f9e1d24d8196184
             reset();
 
         }

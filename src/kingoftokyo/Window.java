@@ -9,14 +9,10 @@ public class Window {
     private static final int YTITLE = 30;
     private static final int WINDOW_BORDER = 8;
     
-    
-<<<<<<< HEAD
     static final int WINDOW_WIDTH = 2*(WINDOW_BORDER + XBORDER) + 800;    
     static final int WINDOW_HEIGHT = YTITLE + WINDOW_BORDER + 800;
-=======
-    static final int WINDOW_WIDTH = 2*(WINDOW_BORDER + XBORDER) + 600;    
-    static final int WINDOW_HEIGHT = YTITLE + WINDOW_BORDER + 600;
->>>>>>> 315915db912627825114903b3f9e1d24d8196184
+//    static final int WINDOW_WIDTH = 2*(WINDOW_BORDER + XBORDER) + 600;    
+//    static final int WINDOW_HEIGHT = YTITLE + WINDOW_BORDER + 600;
     static int xsize = -1;
     static int ysize = -1;
 
