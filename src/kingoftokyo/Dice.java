@@ -28,9 +28,7 @@ public class Dice {
     
     public static int getGain1VictoryPoint() {
         return gain1VictoryPoint;
-    } 
-<<<<<<< HEAD
-    
+    }     
     public static int getGain2VictoryPoints() {
         return gain2VictoryPoints;
     } 
@@ -51,27 +49,3 @@ public class Dice {
         return gainLifePoints;
     }
 }
-=======
-    
-    public static int getGain2VictoryPoints() {
-        return gain2VictoryPoints;
-    } 
-    
-    public static int getGain3VictoryPoint() {
-        return gain3VictoryPoint;
-    } 
-    
-    public static int getGainEnergy() {
-        return gainEnergy;
-    } 
- 
-    public static int getSmash() {
-        return smash;
-    } 
-    
-    public static int getGainLifePoints() {
-        return gainLifePoints;
-    }
-}
-
->>>>>>> 01a297822665a8a8488b9880f8d1a0fd7a6592ab
