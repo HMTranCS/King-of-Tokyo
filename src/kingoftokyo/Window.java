@@ -11,12 +11,8 @@ public class Window {
     
     static final int WINDOW_WIDTH = 2*(WINDOW_BORDER + XBORDER) + 800;    
     static final int WINDOW_HEIGHT = YTITLE + WINDOW_BORDER + 800;
-//    static final int WINDOW_WIDTH = 2*(WINDOW_BORDER + XBORDER) + 600;    
-//    static final int WINDOW_HEIGHT = YTITLE + WINDOW_BORDER + 600;
     static int xsize = -1;
     static int ysize = -1;
-
-
 /////////////////////////////////////////////////////////////////////////
     public static int getX(int x) {
         return (x + XBORDER + WINDOW_BORDER);
@@ -41,7 +37,5 @@ public class Window {
     public static int getHeight2() {
 //        return (ysize - 2 * YBORDER - WINDOW_BORDER - YTITLE);
         return (ysize - (BOTTOM_BORDER + TOP_BORDER) - WINDOW_BORDER - YTITLE);
-    }    
-    
-
+    }        
 }

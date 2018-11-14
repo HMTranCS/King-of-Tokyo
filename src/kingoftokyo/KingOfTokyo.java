@@ -14,14 +14,15 @@ public class KingOfTokyo extends JFrame implements Runnable {
     Image image;
     Graphics2D g;
     
-    Image boardImage;  
+    Image boardImage; 
+    Image alienoidToken;
     boolean win;
    
     static KingOfTokyo frame;
     
     public static void main(String[] args) {
         frame = new KingOfTokyo();
-        frame.setSize(Window.WINDOW_WIDTH, Window.WINDOW_HEIGHT/2);
+        frame.setSize(Window.WINDOW_WIDTH, Window.WINDOW_HEIGHT);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
@@ -120,12 +121,17 @@ public class KingOfTokyo extends JFrame implements Runnable {
         
         g.drawImage(boardImage,Window.getX(0)*8,Window.getY(0)*3,
                 Window.getWidth2()/2,Window.getHeight2()/2,this); 
+        
+        g.drawImage(alienoidToken,Window.getX(0)*8,Window.getY(0)*3,
+                Window.getWidth2()/2,Window.getHeight2()/2,this);
  
-        Drawing.drawMonsterInfoBox(Window.getX(0)*8, Window.getY(0)*3);
+        Drawing.drawMonsterInfoBox(Window.getX(0)*1,Window.getY(0)*6,50,445,180.0,1.0,1.0,120,445,180.0,0.65,0.65,175,448,1.25,1.25);
         
-        Drawing.drawVictoryPoints(250,235,180.0,1.0,1.0);
+        Drawing.drawMonsterInfoBox(Window.getX(0)*23,Window.getY(0)*6,668,445,180.0,1.0,1.0,738,445,180.0,0.65,0.65,788,448,1.25,1.25);
         
-        Drawing.drawHealthPoints(350,235,180.0,0.65,0.65);
+        Drawing.drawMonsterInfoBox(Window.getX(0)*12,Window.getY(0)*2,359,165,180.0,1.0,1.0,429,165,180.0,0.65,0.65,479,168,1.25,1.25);
+        
+        Drawing.drawMonsterInfoBox(Window.getX(0)*12,Window.getY(0)*10,359,725,180.0,1.0,1.0,429,725,180.0,0.65,0.65,484,728,1.25,1.25); 
         
         if (win)
         {
@@ -162,9 +168,9 @@ public class KingOfTokyo extends JFrame implements Runnable {
             if (Window.xsize != getSize().width || Window.ysize != getSize().height) {
                 Window.xsize = getSize().width;
                 Window.ysize = getSize().height;
-            }
-            boardImage = Toolkit.getDefaultToolkit().getImage("./download.jpg");            
-            boardImage = Toolkit.getDefaultToolkit().getImage("./board.jpg");            
+            }            
+            boardImage = Toolkit.getDefaultToolkit().getImage("./board.jpg");  
+            alienoidToken = Toolkit.getDefaultToolkit().getImage("./AL Player Token.png");
             reset();
 
         }
