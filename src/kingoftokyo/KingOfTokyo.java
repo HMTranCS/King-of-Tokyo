@@ -15,14 +15,24 @@ public class KingOfTokyo extends JFrame implements Runnable {
     Graphics2D g;
     
     Image boardImage; 
+<<<<<<< HEAD
     Image alienoidToken;
+=======
+    Image logoImage; 
+    
+    static boolean gameStart;
+>>>>>>> 6461e12a58401aa238bf0d35bc343dd05b16f0e2
     boolean win;
    
     static KingOfTokyo frame;
     
     public static void main(String[] args) {
         frame = new KingOfTokyo();
+<<<<<<< HEAD
         frame.setSize(Window.WINDOW_WIDTH, Window.WINDOW_HEIGHT);
+=======
+        frame.setSize(Window.WINDOW_WIDTH/3*2, Window.WINDOW_HEIGHT/2);
+>>>>>>> 6461e12a58401aa238bf0d35bc343dd05b16f0e2
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
@@ -37,8 +47,20 @@ public class KingOfTokyo extends JFrame implements Runnable {
                     return;
                 
                 if (e.BUTTON1 == e.getButton() ) {
-                    e.getX();
-                    e.getY();
+                    int xpos = e.getX()-Window.getX(0);
+                    int ypos = e.getY()-Window.getY(0);
+                    if (xpos>Window.getX(Window.getWidth2()/5-1) &&
+                            xpos<Window.getX(Window.getWidth2()/5-1)+Window.getWidth2()/5+1&&
+                            ypos>Window.getY(Window.getHeight2()/4*3-1)&&
+                            ypos<Window.getY(Window.getHeight2()/4*3-1)+41){
+                        
+                    }
+                    if(xpos>Window.getX(Window.getWidth2()/5*3-1) &&
+                            xpos<Window.getX(Window.getWidth2()/5*3-1)+Window.getWidth2()/5+1&&
+                            ypos>Window.getY(Window.getHeight2()/4*3-1)&&
+                            ypos<Window.getY(Window.getHeight2()/4*3-1)+41){
+                        
+                    } 
                     win = Board.CheckWin();
                 }
 
@@ -69,11 +91,11 @@ public class KingOfTokyo extends JFrame implements Runnable {
 
             public void keyPressed(KeyEvent e) {
                 if (e.VK_UP == e.getKeyCode()) { 
-                } else if (e.VK_DOWN == e.getKeyCode()) {                     
-                } else if (e.VK_LEFT == e.getKeyCode()) {                     
-                } else if (e.VK_RIGHT == e.getKeyCode()) {                     
-                } else if (e.VK_ESCAPE == e.getKeyCode()) {
-                    reset();
+                } else if (e.VK_DOWN == e.getKeyCode()){                    
+                } else if (e.VK_LEFT == e.getKeyCode()){               
+                } else if (e.VK_RIGHT == e.getKeyCode()){              
+                } else if (e.VK_ESCAPE == e.getKeyCode()){
+
                 }
                 repaint();
             }
@@ -100,25 +122,47 @@ public class KingOfTokyo extends JFrame implements Runnable {
             g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                     RenderingHints.VALUE_ANTIALIAS_ON);
         }
-//fill background
-        
-        g.setColor(Color.cyan);
+//fill background        
+        g.setColor(new Color(3, 85, 184));
         g.fillRect(0, 0, Window.xsize, Window.ysize);
 
         int x[] = {Window.getX(0), Window.getX(Window.getWidth2()), Window.getX(Window.getWidth2()), Window.getX(0), Window.getX(0)};
         int y[] = {Window.getY(0), Window.getY(0), Window.getY(Window.getHeight2()), Window.getY(Window.getHeight2()), Window.getY(0)};
 //fill border
-        g.setColor(Color.white);
+        g.setColor(Color.WHITE);
         g.fillPolygon(x, y, 4);
-// draw border
-        g.setColor(Color.red);
+//draw border
+        g.setColor(new Color(252, 203, 7));
         g.drawPolyline(x, y, 5);
 
         if (animateFirstTime) {
             gOld.drawImage(image, 0, 0, null);
             return;
         }  
+        if (!gameStart){
+            g.drawImage(logoImage,Window.getX(0),Window.getY(0)-115,
+                Window.getWidth2(),Window.getHeight2()*2-50,this);
+            
+            g.setColor(new Color(245,150,7));
+            g.drawRect(Window.getX(Window.getWidth2()/5-1),Window.getY(Window.getHeight2()/4*3-1),
+                Window.getWidth2()/5+1, 41);   
+            g.drawRect(Window.getX(Window.getWidth2()/5*3-1), Window.getY(Window.getHeight2()/4*3-1),
+                Window.getWidth2()/5+1, 41);   
+            g.setColor(new Color(247,202,49));
+            g.fillRect(Window.getX(Window.getWidth2()/5),Window.getY(Window.getHeight2()/4*3),
+                Window.getWidth2()/5, 40);
+            g.fillRect(Window.getX(Window.getWidth2()/5*3), Window.getY(Window.getHeight2()/4*3),
+                Window.getWidth2()/5, 40);
+            g.setColor(Color.black);
+            g.setFont(new Font("Impact",Font.PLAIN,15));
+            g.drawString("Start Game",Window.getX(Window.getWidth2()/5+3),Window.getY(Window.getHeight2()/4*3+25));
+            g.drawString("Instructions",Window.getX(Window.getWidth2()/5*3+1),Window.getY(Window.getHeight2()/4*3+25));
+        }
+        else if (gameStart){
+            g.drawImage(boardImage,Window.getX(0)*8,Window.getY(0)*3,
+                Window.getWidth2()/2,Window.getHeight2()/2,this);
         
+<<<<<<< HEAD
         g.drawImage(boardImage,Window.getX(0)*8,Window.getY(0)*3,
                 Window.getWidth2()/2,Window.getHeight2()/2,this); 
         
@@ -132,14 +176,32 @@ public class KingOfTokyo extends JFrame implements Runnable {
         Drawing.drawMonsterInfoBox(Window.getX(0)*12,Window.getY(0)*2,359,165,180.0,1.0,1.0,429,165,180.0,0.65,0.65,479,168,1.25,1.25);
         
         Drawing.drawMonsterInfoBox(Window.getX(0)*12,Window.getY(0)*10,359,725,180.0,1.0,1.0,429,725,180.0,0.65,0.65,484,728,1.25,1.25); 
+=======
+            if (win)
+            {
+                g.setColor(new Color(252,203,7));
+                g.setFont(new Font("Impact",Font.PLAIN,45));
+                g.drawString("You are the King of Tokyo!",65,325);
+            }
+>>>>>>> 6461e12a58401aa238bf0d35bc343dd05b16f0e2
         
-        if (win)
-        {
-            g.setColor(Color.black);
-            g.setFont(new Font("Arial",Font.PLAIN,45));
-            g.drawString("You are the King of Tokyo!",65,325);
-        }         
+            g.drawImage(boardImage,Window.getX(0)*8,Window.getY(0)*3,
+                    Window.getWidth2()/2,Window.getHeight2()/2,this); 
+
+            Drawing.drawMonsterInfoBox(Window.getX(0)*8, Window.getY(0)*3);
+
+            Drawing.drawVictoryPoints(250,235,180.0,1.0,1.0);
+
+            Drawing.drawHealthPoints(350,235,180.0,0.65,0.65);
+
+            if (win)
+            {
+                g.setColor(Color.black);
+                g.setFont(new Font("Arial",Font.PLAIN,45));
+                g.drawString("You are the King of Tokyo!",65,325);
+            }         
         
+        }
         gOld.drawImage(image, 0, 0, null);
     }
 
@@ -168,9 +230,15 @@ public class KingOfTokyo extends JFrame implements Runnable {
             if (Window.xsize != getSize().width || Window.ysize != getSize().height) {
                 Window.xsize = getSize().width;
                 Window.ysize = getSize().height;
+<<<<<<< HEAD
             }            
             boardImage = Toolkit.getDefaultToolkit().getImage("./board.jpg");  
             alienoidToken = Toolkit.getDefaultToolkit().getImage("./AL Player Token.png");
+=======
+            }
+            boardImage = Toolkit.getDefaultToolkit().getImage("./board.jpg");
+            logoImage = Toolkit.getDefaultToolkit().getImage("./logo.png");  
+>>>>>>> 6461e12a58401aa238bf0d35bc343dd05b16f0e2
             reset();
 
         }
