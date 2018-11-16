@@ -8,7 +8,11 @@ public class Window {
     private static final int BOTTOM_BORDER = 20;
     private static final int YTITLE = 30;
     private static final int WINDOW_BORDER = 8;
+<<<<<<< Updated upstream
     
+=======
+ 
+>>>>>>> Stashed changes
     static final int WINDOW_WIDTH = 2*(WINDOW_BORDER + XBORDER) + 800;    
     static final int WINDOW_HEIGHT = YTITLE + WINDOW_BORDER + 800;
     static int xsize = -1;

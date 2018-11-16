@@ -12,9 +12,10 @@ class Drawing {
     }
 ////////////////////////////////////////////////////////////////////////////
     public static void drawImage(Image image,int xpos,int ypos,double rot,double xscale,
-            double yscale) {
+    double yscale) {
         int width = image.getWidth(mainClassInst);
         int height = image.getHeight(mainClassInst);
+                
         g.translate(xpos,ypos);
         g.rotate(rot  * Math.PI/180.0);
         g.scale( xscale , yscale );
@@ -25,6 +26,14 @@ class Drawing {
         g.scale( 1.0/xscale,1.0/yscale );
         g.rotate(-rot  * Math.PI/180.0);
         g.translate(-xpos,-ypos);
+    }
+////////////////////////////////////////////////////////////////////////////
+    public static void drawBacking(int xpos,int ypos, int height, int width) {
+        g.setColor(new Color(247,202,49));
+        g.fillRect(xpos, ypos, height, width);        
+        
+        g.setColor(Color.black); 
+        g.drawRect(xpos, ypos, height, width);   
     } 
 //////////////////////////////////////////////////////////////////////////// 
     public static void drawMonsterInfoBox(int BoxXPos,int BoxYPos,int VictoryPointsXPos,int VictoryPointsYPos,double VictoryPointsRot,double VictoryPointsXScale,double VictoryPointsYScale,int VictoryPoints,int HealthPointsXPos,int HealthPointsYPos,double HealthPointsRot,double HealthPointsXScale,double HealthPointsYScale,int HealthPoints,int EnergyPointsXPos,int EnergyPointsYPos,double EnergyPointsXScale,double EnergyPointsYScale,int EnergyPoints) {
@@ -32,11 +41,24 @@ class Drawing {
         g.fillRect(BoxXPos, BoxYPos, 184, 50);        
         
         g.setColor(Color.black); 
+<<<<<<< Updated upstream
         g.drawRect(BoxXPos, BoxYPos, 184, 50);   
         
         g.translate(VictoryPointsXPos,VictoryPointsYPos); 
         g.rotate(VictoryPointsRot  * Math.PI/180.0);        
         g.scale(VictoryPointsXScale,VictoryPointsYScale);        
+=======
+        g.drawRect(xpos, ypos, 200, 50);   
+        
+        drawVictoryPoints(250,235,180.0,1.0,1.0);
+        drawHealthPoints(350,235,180.0,0.65,0.65);
+    } 
+//////////////////////////////////////////////////////////////////////////// 
+    public static void drawVictoryPoints(int xpos,int ypos,double rot,double xscale,double yscale) {  
+        g.translate(xpos,ypos); 
+        g.rotate(rot  * Math.PI/180.0);        
+        g.scale(xscale,yscale);        
+>>>>>>> Stashed changes
         
         g.setColor(Color.yellow);
         int xvals[]={0,5,20,10,20,0,-20,-10,-20,-5}; 
@@ -132,6 +154,7 @@ class Drawing {
         g.setColor(Color.darkGray);
         g.drawPolygon(HealthPointsXVals,HealthPointsYVals,HealthPointsXVals.length);        
                  
+<<<<<<< Updated upstream
         g.scale(1.0/HealthPointsXScale,1.0/HealthPointsYScale);
         g.rotate(-HealthPointsRot  * Math.PI/180.0);
         g.translate(-HealthPointsXPos,-HealthPointsYPos);
@@ -172,3 +195,11 @@ class Drawing {
         
     } 
 }
+=======
+        g.scale(1.0/xscale,1.0/yscale);
+        g.rotate(-rot  * Math.PI/180.0);
+        g.translate(-xpos,-ypos); 
+    }        
+////////////////////////////////////////////////////////////////////////////             
+} 
+>>>>>>> Stashed changes
