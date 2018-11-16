@@ -28,7 +28,8 @@ public class Dice {
     
     public static int getGain1VictoryPoint() {
         return gain1VictoryPoint;
-    }     
+    } 
+    
     public static int getGain2VictoryPoints() {
         return gain2VictoryPoints;
     } 

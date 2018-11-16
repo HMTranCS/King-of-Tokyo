@@ -1,11 +1,12 @@
 package kingoftokyo;
 
 public class Monster {
-    private static Monster currPlayer;
-    private static Monster players[] = new Monster[2];
+    private static Monster currPlayer; 
+    private static int numPlayers = 2;
+    private static Monster players[] = new Monster[numPlayers];
     private String name;    
     private int victoryPoints; 
-    private int lifePoints;    
+    private int lifePoints;
         
     public static void Reset() {
        currPlayer = players[0];
@@ -19,6 +20,10 @@ public class Monster {
     
     public static Monster getCurrentPlayer() {
         return currPlayer;
+    } 
+    
+    public static int getNumPlayers() {
+        return numPlayers;
     }
     
     public static void switchTurn() {
